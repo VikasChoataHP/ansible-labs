@@ -12,11 +12,11 @@ This repository contains a collection of Ansible labs and hands-on demos, create
 
 2. Run vagrant up command and navigate to the topic folder of your choice:
 
-    ``bash
+    ```bash
     vagrant up
     vagrant ssh
     cd /vagrant/ansible-vault-lab  # Example: Navigate to the Ansible Vault lab folder
-    ``
+    ```
 
 3. Follow the steps in the `README.md` file for a hands-on exercise.
 
