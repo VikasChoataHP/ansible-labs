@@ -1,0 +1,13 @@
+ENV['VAGRANT_DEFAULT_PROVIDER'] ||= 'docker'
+VAGRANTFILE_API_VERSION = 2
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.provider "docker" do |d|
+    # Build the custom Docker image from the Dockerfile
+    d.build_dir = "."
+    d.has_ssh = true
+    d.remains_running = true
+    d.create_args = ['--cpuset-cpus=2', '--memory=1g']
+    d.cmd = ["/usr/sbin/sshd", "-D"]    
+  end
+end

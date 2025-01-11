@@ -2,7 +2,7 @@
 
 This repository contains a collection of Ansible labs and hands-on demos, created to help you learn and practice key concepts in Ansible. Each topic is structured into its own folder with detailed instructions in the respective `README.md` file.
 
-## How to Use
+## How to Use (Needs vagrant & docker desktop installed)
 
 1. Clone the repository:
 
@@ -10,10 +10,12 @@ This repository contains a collection of Ansible labs and hands-on demos, create
    git clone https://github.com/<your-username>/ansible-labs.git
    cd ansible-labs
 
-2. Navigate to the topic folder of your choice:
+2. Run vagrant up command and navigate to the topic folder of your choice:
 
     ``bash
-    cd ansible-vault-lab  # Example: Navigate to the Ansible Vault lab folder
+    vagrant up
+    vagrant ssh
+    cd /vagrant/ansible-vault-lab  # Example: Navigate to the Ansible Vault lab folder
     ``
 
 3. Follow the steps in the `README.md` file for a hands-on exercise.
