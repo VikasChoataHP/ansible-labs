@@ -1,0 +1,63 @@
+Hello, my name is {{ user_name }}.
+I am from {{ user_location }}.
+
+##########Loop##################
+
+{% for item in users%}
+hello {{item}} !!!
+{% endfor %}
+
+##########Conditional##################
+
+{% for item in users_detail%}
+{% if item.role == 'admin' %}
+hello {{ item.name }}, you are the Administrator !!
+{% else %}
+Hello, {{ item.name }}.
+{% endif %}
+{% endfor %}
+
+###########Filter#################
+
+{% for item in users_detail%}
+{% if item.role == 'admin' %}
+hello {{ item.name | upper }}, you are the Administrator !!
+{% else %}
+Hello, {{ item.name }}.
+{% endif %}
+{% endfor %}
+
+###########Filter#################
+
+{% for item in users_detail%}
+{% if item.role == 'admin' %}
+hello {{ item.name | lower }}, you are the Administrator !!
+{% else %}
+Hello, {{ item.name }}.
+{% endif %}
+{% endfor %}
+
+###########Lookup & external data#################
+
+Ansible users's home directory is {{ lookup('env', 'HOME') }}.
+
+Ansible present working directory is {{ lookup('env', 'PWD') }}.
+
+###########Customizing Output with Jinja2 Formatting#################
+
+| Name       | Age |
+|-- |--|
+{% for user in users_detail %}
+| {{ user.name }} | {{ user.age }} |
+{% endfor %}
+
+
+############# Using macros ################################
+
+{% macro greet(name) %}
+Hello, {{ name }}!
+{% endmacro %}
+
+{% for user in users_detail %}
+{{ greet(user.name) }}
+{% endfor %}
